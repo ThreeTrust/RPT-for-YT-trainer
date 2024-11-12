@@ -1,0 +1,96 @@
+*{
+    font-family: system-ui, sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.contenu{
+    background-color: rgb(29, 29, 14);
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.contour{
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 200px;
+    background: rgb(46,46,23);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.contour::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background: orange;
+    border-radius: 100px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0);
+    transition: 0.2s linear;
+}
+
+.contour::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    background: rgb(29, 29, 14);
+    border-radius:100px ;
+}
+
+.button{
+    display: flex;
+    position: relative;
+    width: 90%;
+    height: 80%;
+    background: rgb(46, 46, 23);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+    align-items: center;
+    border-radius: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .2s linear;
+    z-index: 1000;
+    
+}
+
+.button::before{
+    content: "";
+    position: absolute;
+    width: 43%;
+    height: 93%;
+    background: linear-gradient( to bottom, rgb(38,38,19), rgb(29,29,14));
+    box-shadow: 0 0 20px rgba(0,0,0,0.3),
+                inset 0 2px 8px rgba(255,255,255,0.1);
+    border-radius: 100px;
+    transition: .2s linear;
+    margin: 0px 6px;
+}
+
+input:checked ~ .contour::before{
+    width: 100%;
+    height: 100%;
+}
+
+input:checked ~ .contour .button {
+    background: orange;
+}
+
+input:checked ~ .contour .button::before {
+    transform: translateX(194px);
+}
+
+input{
+    display: none;
+}
